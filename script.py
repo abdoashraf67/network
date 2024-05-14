@@ -27,11 +27,14 @@ def render_jinja2( jinja_file , jinja_argument):
 push_config = input("if you want ospf press o , if you want bgp press b and if you want static route press s :")
 if push_config == 'o':
     configuration = render_jinja2('ospf.j2',data1)
-    connect.send_command_timing(configuration)
+    c = configuration.splitlines()
+    connect.send_command_set(c)
 if push_config == 'b':
     configuration = render_jinja2('BGP.j2',data)
-    connect.send_command_timing(configuration)
+    c = configuration.splitlines()
+    connect.send_command_set(c)
 
 if push_config == 's':
     configuration = render_jinja2('static.j2',data2)
-    connect.send_command_timing(configuration)
+    c = configuration.splitlines()
+    connect.send_command_set(c)
