@@ -38,4 +38,4 @@ if push_config == 's':
     configuration = render_jinja2('static.j2',data2)
     c = configuration.splitlines()
     connect.send_command_set(c)
-    print (c)
+print (c)
