@@ -1,5 +1,6 @@
 print('''************************************************************
 Welcome to the script and have fun !''')
+push_config = input("if you want ospf press 1 , if you want bgp press 2 and if you want static route press 3 :")
 import yaml
 from netmiko import ConnectHandler
 device = {
@@ -24,7 +25,8 @@ def render_jinja2( jinja_file , jinja_argument):
     temp = env.get_template(jinja_file)
     out = temp.render(a=jinja_argument)
     return out
-push_config = input("if you want ospf press 1 , if you want bgp press 2 and if you want static route press 3 :")
+
+
 if push_config == '1':
     configuration = render_jinja2('ospf.j2',data1)
     c = configuration.splitlines()
