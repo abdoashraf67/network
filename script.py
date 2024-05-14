@@ -28,15 +28,13 @@ push_config = input("if you want ospf press o , if you want bgp press b and if y
 if push_config == 'o':
     configuration = render_jinja2('ospf.j2',data1)
     c = configuration.splitlines()
-    connect.send_command_set(c)
+    connect.send_config_set(c)
 if push_config == 'b':
     configuration = render_jinja2('BGP.j2',data)
     c = configuration.splitlines()
-    connect.send_command_set(c)
+    connect.send_config_set(c)
 
 if push_config == 's':
     configuration = render_jinja2('static.j2',data2)
     c = configuration.splitlines()
-    connect.send_command_set(c)
-    print (c)
-
+    connect.send_config_set(c)
